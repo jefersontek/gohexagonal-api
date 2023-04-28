@@ -5,12 +5,11 @@ import (
 	"net/http"
 )
 
-type APIError struct {
-	DeveloperMessage string `json:"developerMessage"`
-	UserMessage      string `json:"userMessage"`
-	ErrorCode        int    `json:"errorCode"`
-	StatusCode       int    `json:"-"`
-	MoreInfo         string `json:"moreInfo"`
+type APIError struct {	
+	ErrorCode  int    `json:"error_code"`
+	Message    string `json:"message"`
+	StatusCode int    `json:"-"`
+	Details    string `json:"moreInfo"`
 }
 
 func ReplyJSON(w http.ResponseWriter, statusCode int, payload interface{}) string {
